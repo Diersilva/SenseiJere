@@ -1,0 +1,79 @@
+package resolucion;
+
+public class Comision {
+	
+	private String materia;
+	private int numero;
+	private Docente[] docentes;
+	private Estudiante[] inscriptos;
+	private int[] calificaciones;
+	
+	public Comision(String materia, int numero) {
+		this.materia = materia;
+		this.numero = numero;
+		this.docentes = new Docente[3];
+		this.inscriptos = new Estudiante[10]; 
+		this.calificaciones = new int[10];
+	}
+
+	public String getMateria() {
+		return materia;
+	}
+
+	public void setMateria(String materia) {
+		this.materia = materia;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public Docente[] getDocentes() {
+		return docentes;
+	}
+
+	public void setDocentes(Docente[] docentes) {
+		this.docentes = docentes;
+	}
+
+	public Estudiante[] getInscriptos() {
+		return inscriptos;
+	}
+
+	public void setInscriptos(Estudiante[] inscriptos) {
+		this.inscriptos = inscriptos;
+	}
+
+	public int[] getCalificaciones() {
+		return calificaciones;
+	}
+
+	public void setCalificaciones(int[] calificaciones) {
+		this.calificaciones = calificaciones;
+	}
+	
+	public void agregarDocente(String nombre, int dni) {
+		for (int i = 0; i < this.docentes.length; i++) {
+			if(this.docentes[i] == null) {
+				this.docentes[i] = new Docente(nombre, dni);
+				break;
+			}
+		}
+	}
+	
+	public void agregarEstudiante(String nombre, int legajo, int calif) {
+		for (int i = 0; i < this.inscriptos.length; i++) {
+			if(this.inscriptos[i] == null) {
+				this.inscriptos[i] = new Estudiante(nombre, legajo);
+				this.calificaciones[i] = calif;
+				break;
+			}
+		}
+	}
+	
+	
+}
